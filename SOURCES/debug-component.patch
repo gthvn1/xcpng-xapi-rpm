@@ -1,0 +1,24 @@
+diff --git a/ocaml/xapi/xapi_observer_components.ml b/ocaml/xapi/xapi_observer_components.ml
+index d3e0587b1..f746caa60 100644
+--- a/ocaml/xapi/xapi_observer_components.ml
++++ b/ocaml/xapi/xapi_observer_components.ml
+@@ -90,9 +90,17 @@ let is_component_enabled ~component =
+                  |> List.mem component
+             )
+             observers
+-        with _ -> false
++        with e ->
++          D.log_backtrace ();
++          D.error "is_component_enabled(%s) inner got exception: %s"
++            (to_string component) (Printexc.to_string e);
++          false
+       )
+-  with _ -> false
++  with e ->
++    D.log_backtrace ();
++    D.error "is_component_enabled(%s) got exception: %s"
++      (to_string component) (Printexc.to_string e);
++    false
+ 
+ let is_smapi_enabled () = is_component_enabled ~component:SMApi
+ 

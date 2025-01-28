@@ -23,7 +23,7 @@
 Summary: xapi - xen toolstack for XCP
 Name:    xapi
 Version: 24.39.1
-Release: 1.0.ydi.2%{?xsrel}%{?dist}
+Release: 1.0.ydi.2.dbg.1%{?xsrel}%{?dist}
 Group:   System/Hypervisor
 License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:  http://www.xen.org
@@ -76,6 +76,9 @@ Patch1005: xapi-24.19.2-fix-ipv6-import.XCP-ng.patch
 Patch1007: xapi-24.19.2-more-fingerprint-field-updates-fixes.XCP-ng.patch
 # Disable flaky test, see af3989235e62f5887a8cac08f4c1977726839297
 Patch1008: xen-api-24.39.1-test-disable-cancellable-sleep.patch
+
+# debug
+Patch2000: debug-component.patch
 
 %{?_cov_buildrequires}
 BuildRequires: ocaml-ocamldoc
@@ -1361,6 +1364,9 @@ Coverage files from unit tests
 %{?_cov_results_package}
 
 %changelog
+* Tue Jan 28 2025 Yann Dirson <yann.dirson@vates.tech> - 24.39.1-1.0.ydi.2.dbg.1
+- debug traces for is_component_enabled
+
 * Tue Jan 21 2025 Yann Dirson <yann.dirson@vates.tech> - 24.39.1-1.0.ydi.2
 - Update to upstream 24.39.1-1
 - Reformat changelog to allow diffing with upstream
