@@ -23,7 +23,7 @@
 Summary: xapi - xen toolstack for XCP
 Name:    xapi
 Version: 24.39.1
-Release: 1.0.ydi.2.dbg.3%{?xsrel}%{?dist}
+Release: 1.0.ydi.3%{?xsrel}%{?dist}
 Group:   System/Hypervisor
 License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:  http://www.xen.org
@@ -156,7 +156,7 @@ Requires: gmp
 # Requires: xapi-storage-plugins >= 2.0.0
 # Requires: xapi-clusterd >= 0.64.0
 Requires: xxhash-libs
-Requires: jemalloc
+Requires: jemalloc >= 5
 Requires: zstd
 Requires: createrepo_c >= 0.10.0
 Requires: tdb-tools >= 1.3.18
@@ -1369,9 +1369,10 @@ Coverage files from unit tests
 %{?_cov_results_package}
 
 %changelog
-* Tue Jan 28 2025 Yann Dirson <yann.dirson@vates.tech> - 24.39.1-1.0.ydi.2.dbg.3
-- debug traces for is_component_enabled
-- IPMI fixes from psafont for testing
+* Thu Feb  6 2025 Yann Dirson <yann.dirson@vates.tech> - 24.39.1-1.0.ydi.3
+- debug traces for is_component_enabled (PR #6280)
+- IPMI fixes from psafont for testing (PR #6261)
+- bump version requirement on jemalloc to get required libjemalloc.so.2
 
 * Tue Jan 21 2025 Yann Dirson <yann.dirson@vates.tech> - 24.39.1-1.0.ydi.2
 - Update to upstream 24.39.1-1
