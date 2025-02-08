@@ -1,0 +1,13 @@
+diff --git a/ocaml/xenopsd/scripts/qemu-wrapper b/ocaml/xenopsd/scripts/qemu-wrapper
+index 15930adab..61e7a7f5c 100644
+--- a/ocaml/xenopsd/scripts/qemu-wrapper
++++ b/ocaml/xenopsd/scripts/qemu-wrapper
+@@ -293,7 +293,7 @@ def main(argv):
+ 
+     print("Exec: %s %s" % (qemu_dm, " ".join(qemu_args)))
+ 
+-    clipboardd = '/opt/xensource/libexec/xs-clipboardd'
++    clipboardd = '/opt/xensource/libexec/xcp-clipboardd'
+     subprocess.call([clipboardd, "-d", str(domid), "-s", str(s2.fileno())],
+                     pass_fds=[s2.fileno()])
+ 
